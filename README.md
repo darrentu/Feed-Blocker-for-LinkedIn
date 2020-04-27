@@ -10,25 +10,25 @@ Do you get distracted often on LinkedIn? Do you feel like LinkedIn is making you
 
 Introducing Feed Blocker for LinkedIn. The main intention of Feed Blocker is for you to block the feed on LinkedIn. This is for you to save time so you can spend time doing what you have to do (ex. job searching). Along with blocking the feed, you can also block the “Today’s News and Views" tab as well. All of this is free - you don’t even need LinkedIn premium :)
 
-####  FAQ (Frequently Asked Questions) 
+###  FAQ (Frequently Asked Questions) 
 
-##### When I click on the toggle, it doesn't block the feed! What's going on?
+#### When I click on the toggle, it doesn't block the feed! What's going on?
 
 LinkedIn frequently releases new code. If it doesn't work, it's probably because LinkedIn just recently updated their code base. If I notice it, I will fix it and push an update to this extension. Feel free to comment within the reviews tab if no update has occurred.
 
-##### Why does it require my browsing history? 
+#### Why does it require my browsing history? 
 
 The browsing history permission is very misleading here. I require to use the Chrome tabs API (https://developer.chrome.com/extensions/tabs). Chrome tabs API has functions to access your browsing history. This extension only uses the onUpdated event (https://developer.chrome.com/extensions/tabs#event-onUpdated) of the Chrome tabs API. This is because LinkedIn works as a single paged application. I need the Chrome tabs api information to indicate when the url in the browser has changed. This is because I would need to remove the 'feed' and the "Today's news" again when a user goes back onto the feed. 
 
 Without the tabs api, when you click onto another tab (such as LinkedIn Messaging) and then click back onto LinkedIn Home, the feed and news will reload back onto the page (when it should be removed).
 
 
-#### Features
+### Features
 
 - Block your LinkedIn Feed
 - Block LinkedIn's "Today's News and Views"
 
-#### How to use?
+### How to use?
 
 Left click on the Chrome extension in your browser. A popup should appear.
 
@@ -37,7 +37,7 @@ Left click on the Chrome extension in your browser. A popup should appear.
 
 Tabs such as LinkedIn 'My Network', Jobs, Messaging, Notifications will still work as expected. 
 
-#### DISCLAIMER:
+### DISCLAIMER:
 
 I do not store any of your data. The only data that is stored is kept on your own computer. This is needed for Chrome to remember what you selected to hide when you refresh your page.
 
