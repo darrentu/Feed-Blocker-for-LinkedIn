@@ -2,9 +2,9 @@
 
 ![Demo](https://lh3.googleusercontent.com/5Q1whlv-yRkXiIKcKvpHHaAa1AiKb3GUfYK-tB9uyhnDisg-lfJX9vjePvDaONaAmVgfNoIKJ8Y=w640-h400-e365)
 
-Chrome Web Store: https://chrome.google.com/webstore/detail/feed-blocker-for-linkedin/eikaafmldiioljlilngpogcepiedpenf?hl=en
+**Chrome Web Store:** https://chrome.google.com/webstore/detail/feed-blocker-for-linkedin/eikaafmldiioljlilngpogcepiedpenf?hl=en
 
-Youtube demo link: https://www.youtube.com/watch?v=PeV_By7imjE
+**Youtube demo link:** https://www.youtube.com/watch?v=PeV_By7imjE
 
 Do you get distracted often on LinkedIn? Do you feel like LinkedIn is making you unproductive? or simply a waste of time? It can be frustrating at times especially if you are using it primary for job searching. 
 
