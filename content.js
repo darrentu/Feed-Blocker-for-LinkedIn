@@ -30,7 +30,7 @@ function removeFeed() {
  * on removing the news is necessary. 
  */
 
-async function attemptToRemoveNews() {
+async function attemptToRemoveElement(className) {
 
   let ping = 0;
   let removed = false;
@@ -38,8 +38,8 @@ async function attemptToRemoveNews() {
   async function wait(ms) {
     return new Promise(resolve => {
       setTimeout(() => {
-        if (document.getElementsByClassName("feed-shared-news-module")[0]) {
-          document.getElementsByClassName("feed-shared-news-module")[0].remove();
+        if (document.getElementsByClassName(className)[0]) {
+          document.getElementsByClassName(className)[0].remove();
           removed = true;
         }
         ping = ping + 1;
@@ -55,16 +55,18 @@ async function attemptToRemoveNews() {
 
 chrome.runtime.onMessage.addListener((result) => {
   if (result.message = msgForChange) {
-      chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
+      chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
         if (res.hideFeed) removeFeed();
-        if (res.hideNews) attemptToRemoveNews();
+        if (res.hideNews) attemptToRemoveElement("feed-shared-news-module");
+        if (res.hideCourses) attemptToRemoveElement("learning-top-courses");
       });
   }
 })
 
-chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
+chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
   if (res.hideFeed) removeFeed();
-  if (res.hideNews) attemptToRemoveNews();
+  if (res.hideNews) attemptToRemoveElement("feed-shared-news-module");
+  if (res.hideCourses) attemptToRemoveElement("learning-top-courses");
 });
 
 
