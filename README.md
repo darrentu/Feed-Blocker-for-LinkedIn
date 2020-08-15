@@ -5,12 +5,13 @@
 Links: [Chrome Web Store](https://chrome.google.com/webstore/detail/feed-blocker-for-linkedin/eikaafmldiioljlilngpogcepiedpenf?hl=en) | [Youtube Demo Link](https://www.youtube.com/watch?v=PeV_By7imjE)
  
 
-Introducing Feed Blocker for LinkedIn. With this extension, you can block both your feed and the "Today's News and Views" section on LinkedIn. 
+Introducing Feed Blocker for LinkedIn. With this extension, you can block both your feed, the "Today's News and Views", and the "Today's most viewed courses". 
 
 ### Features
 
 - Block your LinkedIn Feed
 - Block LinkedIn's "Today's News and Views"
+- Block LinkedIn's "Today's most viewed courses"
 
 
 ###  FAQ (Frequently Asked Questions)
