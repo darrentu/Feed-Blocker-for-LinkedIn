@@ -57,7 +57,7 @@ chrome.runtime.onMessage.addListener((result) => {
   if (result.message = msgForChange) {
       chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
         if (res.hideFeed) removeFeed();
-        if (res.hideNews) attemptToRemoveElement("feed-shared-news-module");
+        if (res.hideNews) attemptToRemoveElement("news-module");
         if (res.hideCourses) attemptToRemoveElement("learning-top-courses");
       });
   }
@@ -65,7 +65,7 @@ chrome.runtime.onMessage.addListener((result) => {
 
 chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
   if (res.hideFeed) removeFeed();
-  if (res.hideNews) attemptToRemoveElement("feed-shared-news-module");
+  if (res.hideNews) attemptToRemoveElement("news-module");
   if (res.hideCourses) attemptToRemoveElement("learning-top-courses");
 });
 
