@@ -1,3 +1,4 @@
+'use strict';
 
 const checkboxFeed = document.getElementById("lk-checkbox-feed");
 const checkboxNews = document.getElementById("lk-checkbox-news");
