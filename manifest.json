@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Feed Blocker for LinkedIn",
-    "version": "1.1",
+    "version": "1.1.1",
     "description": "Block the feed on LinkedIn",
     "background": {
       "scripts":["background.js"]

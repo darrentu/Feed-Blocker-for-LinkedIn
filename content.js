@@ -59,6 +59,7 @@ async function attemptToHideElement(className) {
   }
 }
 
+<<<<<<< HEAD
 async function attemptToAddElement(className) {
   let ping = 0;
   let added = false;
@@ -95,6 +96,15 @@ setInterval(() => {
       if (res.hideNews) attemptToHideElement("news-module");
       if (res.hideCourses) attemptToHideElement("learning-top-courses");
     });
+=======
+chrome.runtime.onMessage.addListener((result) => {
+  if (result.message = msgForChange) {
+      chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
+        if (res.hideFeed) removeFeed();
+        if (res.hideNews) attemptToRemoveElement("news-module");
+        if (res.hideCourses) attemptToRemoveElement("learning-top-courses");
+      });
+>>>>>>> 204f67debf8d4c7d139a117313230a7db6f501e2
   }
   
 }, 500)
@@ -109,9 +119,15 @@ chrome.storage.onChanged.addListener((res, _) => {
 });
 
 chrome.storage.local.get(['hideFeed', 'hideNews', 'hideCourses'], (res) => {
+<<<<<<< HEAD
   if (res.hideFeed) hideFeed();
   if (res.hideNews) attemptToHideElement("news-module");
   if (res.hideCourses) attemptToHideElement("learning-top-courses");
+=======
+  if (res.hideFeed) removeFeed();
+  if (res.hideNews) attemptToRemoveElement("news-module");
+  if (res.hideCourses) attemptToRemoveElement("learning-top-courses");
+>>>>>>> 204f67debf8d4c7d139a117313230a7db6f501e2
 });
 
 
