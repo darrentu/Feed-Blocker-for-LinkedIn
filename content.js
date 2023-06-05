@@ -3,32 +3,17 @@
 const maxPing = 5;
 const waitBetweenPings = 100; //in milliseconds
 
-/**
- * The reason why getElementsByClassName("artdeco-dropdown")[1] isn't using a variable name
- * is because the variable will keep the reference of the variable. If you remove() on the variable,
- * you will remove the reference. If you were to click into LinkedIn messaging, and then click back
- * into the LinkedIn feed, the feed will reload back in and the blocker wouldn't work. I believe
- * LinkedIn is a single page application. 
- */
-
 function hideFeed() {
-  
-  if (document.getElementsByClassName("artdeco-dropdown") && document.getElementsByClassName("artdeco-dropdown")[1]) {
-    if (document.getElementsByClassName("artdeco-dropdown")[1].nextElementSibling) {
-      document.getElementsByClassName("artdeco-dropdown")[1].nextElementSibling.classList.add("displayNone");
-    }
+  if (window.location.href.endsWith("feed/")) {
+    document.getElementsByTagName("main")[0].style.display = "none";
   }
 }
 
 function addFeed() {
-  
-  if (document.getElementsByClassName("artdeco-dropdown") && document.getElementsByClassName("artdeco-dropdown")[1]) {
-    if (document.getElementsByClassName("artdeco-dropdown")[1].nextElementSibling) {
-      document.getElementsByClassName("artdeco-dropdown")[1].nextElementSibling.classList.remove("displayNone");
-    }
+  if (window.location.href.endsWith("feed/")) {
+    document.getElementsByTagName("main")[0].style.display = null;
   }
 }
-
 
 /**
  * For some odd reason, the news seem to load much slower than the feed. Therefore, multiple attempts
