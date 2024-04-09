@@ -1,15 +1,15 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Feed Blocker for LinkedIn",
-    "version": "1.1.1",
+    "version": "2.0",
     "description": "Block the feed on LinkedIn",
-    "background": {
-      "scripts":["background.js"]
-    },
     "icons": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
+    },
+    "background": {
+      "service_worker": "background.js"
     },
     "content_scripts": [
       {
@@ -20,10 +20,10 @@
         "css": ["content.css"]
       }
     ],
-    "browser_action": {
+    "action": {
       "default_popup": "popup.html"
     },
     "permissions": [
-      "storage"
+      "storage", "tabs"
     ]
   }
