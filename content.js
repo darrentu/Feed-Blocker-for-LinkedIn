@@ -1,6 +1,5 @@
 const maxPing = 5;
 const waitBetweenPings = 100; //in milliseconds
-const msgForChange = "changed"; // message for when there is a change in the url
 
 chrome.storage.local.get(['hideFeed'], (res) => {
   if (res.hideFeed == undefined) {
@@ -11,7 +10,7 @@ chrome.storage.local.get(['hideFeed'], (res) => {
 
 
 function removeFeed() {
-  if (window.location.href.endsWith("feed/")) {
+  if (window.location.href.includes("linkedin.com/feed/")) {
     if (document.getElementsByTagName("main")) {
       if (document.getElementsByTagName("main")[0]) {
         document.getElementsByTagName("main")[0].remove();
@@ -50,22 +49,12 @@ async function attemptToRemoveElement(className) {
   }
 }
 
-chrome.runtime.onMessage.addListener((result) => {
-  if (result.message = msgForChange) {
-      chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
-        if (res.hideFeed) removeFeed();
-        if (res.hideNews) attemptToRemoveElement("news-module");
-      });
-  }
-})
-
-
-
-chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
-  if (res.hideFeed) removeFeed();
-  if (res.hideNews) attemptToRemoveElement("news-module");
-});
-
+setInterval(() => {
+  chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
+    if (res.hideFeed) removeFeed();
+    if (res.hideNews) attemptToRemoveElement("news-module");
+  });
+}, 500);
 
 
 
