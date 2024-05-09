@@ -14,8 +14,6 @@ function removeFeed() {
     if (document.getElementsByTagName("main")) {
       if (document.getElementsByTagName("main")[0]) {
         document.getElementsByTagName("main")[0].remove();
-      } else {
-        document.getElementsByTagName("main").remove();
       }
     }
   }
@@ -27,32 +25,34 @@ function removeFeed() {
  * on removing the news is necessary. 
  */
 
-async function attemptToRemoveElement(className) {
-  let ping = 0;
-  let removed = false;
+async function attemptToRemoveElement(elementName) {
+  if (window.location.href.includes("linkedin.com/feed/")) {
+    let ping = 0;
+    let removed = false;
 
-  async function wait(ms) {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        if (document.getElementsByClassName(className)[0]) {
-          document.getElementsByClassName(className)[0].remove();
-          removed = true;
-        }
-        ping = ping + 1;
-        resolve();
-      }, ms);
-    });
-  }
+    async function wait(ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          if (document.getElementById(elementName)) {
+            document.getElementById(elementName).remove();
+            removed = true;
+          }
+          ping = ping + 1;
+          resolve();
+        }, ms);
+      });
+    }
 
-  while (!removed && ping < maxPing) {
-    await wait(waitBetweenPings);
+    while (!removed && ping < maxPing) {
+      await wait(waitBetweenPings);
+    }
   }
 }
 
 setInterval(() => {
   chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
     if (res.hideFeed) removeFeed();
-    if (res.hideNews) attemptToRemoveElement("news-module");
+    if (res.hideNews) attemptToRemoveElement("feed-news-module");
   });
 }, 500);
 
