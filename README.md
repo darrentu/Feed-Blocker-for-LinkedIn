@@ -1,7 +1,5 @@
 # Feed Blocker for LinkedIn :no_entry_sign: :newspaper:
 
-![Demo](https://lh3.googleusercontent.com/5Q1whlv-yRkXiIKcKvpHHaAa1AiKb3GUfYK-tB9uyhnDisg-lfJX9vjePvDaONaAmVgfNoIKJ8Y=w640-h400-e365)
-
 Links: [Chrome Web Store](https://chrome.google.com/webstore/detail/feed-blocker-for-linkedin/eikaafmldiioljlilngpogcepiedpenf?hl=en)
  
 
