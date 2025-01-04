@@ -1,6 +1,3 @@
-const maxPing = 5;
-const waitBetweenPings = 100; //in milliseconds
-
 chrome.storage.local.get(['hideFeed'], (res) => {
   if (res.hideFeed == undefined) {
     chrome.storage.local.set({ 'hideFeed': true });
@@ -20,42 +17,35 @@ function removeFeed() {
 }
 
 
-/**
- * For some odd reason, the news seem to load much slower than the feed. Therefore, multiple attempts
- * on removing the news is necessary. 
- */
-
-async function attemptToRemoveElement(elementName) {
+function attemptToRemoveElement(elementName) {
   if (window.location.href.includes("linkedin.com/feed/")) {
-    let ping = 0;
-    let removed = false;
-
-    async function wait(ms) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          if (document.getElementById(elementName)) {
-            document.getElementById(elementName).remove();
-            removed = true;
-          }
-          ping = ping + 1;
-          resolve();
-        }, ms);
-      });
-    }
-
-    while (!removed && ping < maxPing) {
-      await wait(waitBetweenPings);
+    if (document.getElementById(elementName)) {
+      document.getElementById(elementName).remove();
     }
   }
 }
 
-setInterval(() => {
-  chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
-    if (res.hideFeed) removeFeed();
-    if (res.hideNews) attemptToRemoveElement("feed-news-module");
-  });
-}, 500);
 
+const observer = new MutationObserver(() => {
+  try {
+    chrome.storage.local.get(['hideFeed', 'hideNews'], (res) => {
+      if (res.hideFeed) removeFeed();
+      if (res.hideNews) attemptToRemoveElement("feed-news-module");
+    });
+  } catch(e) {
+    console.error("Error inside of observer callback: ", e);
+  }
+});
+
+const tryObserving = () => {
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    setTimeout(tryObserving, 50);
+  }
+};
+
+tryObserving();
 
 
  
