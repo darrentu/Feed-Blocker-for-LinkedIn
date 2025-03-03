@@ -9,9 +9,14 @@ chrome.storage.local.get(['hideFeed'], (res) => {
 function removeFeed() {
   if (window.location.href.includes("linkedin.com/feed/")) {
     if (document.getElementsByTagName("main")) {
-      if (document.getElementsByTagName("main")[0]) {
-        document.getElementsByTagName("main")[0].remove();
-      }
+      
+        setTimeout(() => {
+          if (document.getElementsByTagName("main")[0]) {
+          document.getElementsByTagName("main")[0].remove();
+          }
+        }, 0);
+        
+      
     }
   }
 }
@@ -19,9 +24,13 @@ function removeFeed() {
 
 function attemptToRemoveElement(elementName) {
   if (window.location.href.includes("linkedin.com/feed/")) {
-    if (document.getElementById(elementName)) {
-      document.getElementById(elementName).remove();
-    }
+    
+      setTimeout(() => {
+        if (document.getElementById(elementName)) {
+        document.getElementById(elementName).remove();
+        }
+      }, 0);
+    
   }
 }
 
@@ -33,7 +42,7 @@ const observer = new MutationObserver(() => {
       if (res.hideNews) attemptToRemoveElement("feed-news-module");
     });
   } catch(e) {
-    console.error("Error inside of observer callback: ", e);
+    console.log("Error inside of observer callback: ", e);
   }
 });
 

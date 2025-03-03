@@ -25,3 +25,7 @@ checkboxNews.addEventListener('change', () => {
         chrome.storage.local.set({ 'hideNews': false });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("year").textContent = `${new Date().getFullYear()}`;
+});

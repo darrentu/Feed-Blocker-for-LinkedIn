@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Feed Blocker for LinkedIn",
-    "version": "2.4",
+    "version": "2.5",
     "description": "Block the feed on LinkedIn",
     "icons": {
       "16": "icons/icon16.png",
@@ -14,8 +14,7 @@
           "https://www.linkedin.com/*"
         ],
         "js": ["content.js"],
-        "css": ["content.css"],
-        "run_at": "document_start"
+        "css": ["content.css"]
       }
     ],
     "action": {
